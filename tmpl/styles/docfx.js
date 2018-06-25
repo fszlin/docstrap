@@ -1259,17 +1259,11 @@ $(function () {
     });
 
     window.disqus_config = function () {
-        console.log('disqus_config');
-        this.callbacks.onReady = [function () {
-            console.log('onReady');
-            updateStickyPanels();
-        }];
+        this.callbacks.onReady = [updateStickyPanels];
     };
 
-    (function () {
-        var d = document, s = d.createElement('script');
-        s.src = 'https://certes-doc.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
+    var d = document, s = d.createElement('script');
+    s.src = 'https://certes-doc.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
 });
