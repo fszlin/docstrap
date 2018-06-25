@@ -1257,4 +1257,19 @@ $(function () {
                 .append($('<span class="sr-only" />').text(txt));
         }
     });
+
+    window.disqus_config = function () {
+        console.log('disqus_config');
+        this.callbacks.onReady = [function () {
+            console.log('onReady');
+            updateStickyPanels();
+        }];
+    };
+
+    (function () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://certes-doc.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
 });
