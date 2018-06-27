@@ -1258,6 +1258,10 @@ $(function () {
         }
     });
 
+    $('article blockquote').each(function (i, e) {
+        $(e).addClass('alert alert-info pb-0');
+    });
+
     window.disqus_config = function () {
         this.callbacks.onReady = [updateStickyPanels];
     };
